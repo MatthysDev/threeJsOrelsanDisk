@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>My first three.js app</title>
+		<style>
+			body { margin: 0; }
+		</style>
+	</head>
+	<body>
+		<script src="js/three.js"></script>
+        <script src="js/OrbitControls.js"></script>
+		<script>
+			const scene = new THREE.Scene();
+			const camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+			const renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );
+
+			const geometry = new THREE.BoxGeometry(3,1,0.01);
+            const geometry2 = new THREE.BoxGeometry(1,2,0.01);
+            const geometry3 = new THREE.BoxGeometry(1,2,0.01);
+            const geometry4 = new THREE.BoxGeometry(1,2,0.01);
+            const geometry5 = new THREE.BoxGeometry(3,1,0.01);
+            const logo = new THREE.BoxGeometry(0.3,0.3,0.02);
+			const material = new THREE.MeshBasicMaterial( { color: 0x4E9F68  } );
+            const material2 = new THREE.MeshBasicMaterial( { color: 0x1C58AC } );
+            const material3 = new THREE.MeshBasicMaterial( { color: 0x00000  } );
+            const material4 = new THREE.MeshBasicMaterial( { color: 0xBA3D3D } );
+            const material5 = new THREE.MeshBasicMaterial( { color: 0xBCBFB5 } );
+            const materialLogo = new THREE.MeshBasicMaterial( { color: 0xFFFFFF} );
+			const cube = new THREE.Mesh( geometry, material );
+            const cube2 = new THREE.Mesh( geometry2, material2 );
+            const cube3 = new THREE.Mesh( geometry3, material3 );
+            const cube4 = new THREE.Mesh( geometry4, material4 );
+            const cube5 = new THREE.Mesh( geometry5, material5 );
+            const meshLogo = new THREE.Mesh( logo, materialLogo );
+			scene.add( cube );
+            scene.add( cube2 );
+            scene.add( cube3 );
+            scene.add( cube4 );
+            scene.add( cube5 );
+            scene.add( meshLogo);
+			camera.position.z = 5;
+            
+            
+
+            
+            const geometrycircle = new THREE.CircleGeometry( 2.8, 64, 10 );
+            const materialcircle = new THREE.MeshBasicMaterial( { color: 0x9D9B9B } );
+            const circle = new THREE.Mesh( geometrycircle, materialcircle );
+            scene.add( circle );
+
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            
+
+			const animate = function () {
+				requestAnimationFrame( animate );
+                meshLogo.position.set(0,0,0.02)
+                meshLogo.rotation.z +=0.05;
+				//cube.rotation.x += 0.01;
+				//cube.rotation.y += 0.01;
+                cube.position.set(0,1.5,0)
+
+                //cube2.rotation.x += 0.01;
+				//cube2.rotation.y += 0.01;
+                cube2.position.set(-1,0,0)
+
+                //cube3.rotation.x += 0.01;
+				//cube3.rotation.y += 0.01;
+                cube3.position.set(0,0,0)
+
+                //cube4.rotation.x += 0.01;
+				//cube4.rotation.y += 0.01;
+                cube4.position.set(1,0,0)
+
+                //cube5.rotation.x += 0.01;
+				//cube5.rotation.y += 0.01;
+                cube5.position.set(0,-1.5,0)
+                
+
+				renderer.render( scene, camera );
+			};
+
+			animate();
+		</script>
+	</body>
+</html>
