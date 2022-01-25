@@ -28,7 +28,9 @@
       const loader = new THREE.TextureLoader();
 
       const logoShinobi = new THREE.MeshBasicMaterial({
-        map: loader.load("http://songnes.com/g/crate0_normal.png"),
+        map: loader.load(
+          "https://raw.githubusercontent.com/MatthysDev/threeJsOrelsanDisk/main/logo.png"
+        ),
       });
 
       const geometry = new THREE.BoxGeometry(3, 1, 0.01);
@@ -38,7 +40,7 @@
       const geometry4 = new THREE.BoxGeometry(1, 1, 0.01);
       const geometry41 = new THREE.BoxGeometry(1, 1, 0.01);
       const geometry5 = new THREE.BoxGeometry(3, 1, 0.01);
-      const logo = new THREE.BoxGeometry(0.3, 0.3, 0.1);
+      const logo = new THREE.BoxGeometry(0.6, 0.6, 0.1);
       const material = new THREE.MeshBasicMaterial({ color: 0x4e9f68 });
       const material2 = new THREE.MeshBasicMaterial({ color: 0x1c58ac });
       const material3 = new THREE.MeshBasicMaterial({ color: 0x00000 });
@@ -52,7 +54,7 @@
       const cubeRouge = new THREE.Mesh(geometry4, material4);
       const cubeRouge2 = new THREE.Mesh(geometry4, material4);
       const cubeGris = new THREE.Mesh(geometry5, material5);
-      const meshLogo = new THREE.Mesh(logo, materialLogo);
+      const meshLogo = new THREE.Mesh(logo, logoShinobi);
       scene.add(cubeVert);
       scene.add(cubeBleu);
       scene.add(cubeBleu2);
